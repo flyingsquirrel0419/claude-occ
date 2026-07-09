@@ -1,0 +1,24 @@
+{
+  "name": "openclaudecode",
+  "version": "0.1.0",
+  "description": "Claude Code provider gateway proxy",
+  "license": "MIT",
+  "bin": {
+    "occ": "./bin/occ.js",
+    "openclaude": "./bin/occ.js",
+    "openclaudecode": "./bin/occ.js"
+  },
+  "scripts": {
+    "postinstall": "node ./bin/postinstall.js",
+    "smoke": "node ./bin/occ.js --version"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "bin/occ.js",
+    "bin/postinstall.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

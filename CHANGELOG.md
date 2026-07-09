@@ -1,0 +1,58 @@
+# Changelog
+
+All notable changes to openclaude are documented here.
+
+This project follows a pragmatic pre-1.0 changelog: versions may still change CLI details, but
+security boundaries and native-mode behavior should remain explicit.
+
+## [0.1.0] - 2026-07-08
+
+### Added
+
+- Rust CLI binary `occ`.
+- npm wrapper package metadata for the `occ`, `openclaude`, and `openclaudecode` commands.
+- Interactive `occ init` with an opencodex-style provider picker.
+- Single-file config at `~/.openclaude/config.json`.
+- Local gateway endpoints:
+  - `GET /healthz`
+  - `GET /v1/models`
+  - `POST /v1/messages`
+  - `POST /v1/messages/count_tokens`
+  - `GET /api/config`
+  - `GET /api/providers`
+  - `POST /api/stop`
+- Provider management commands:
+  - `occ provider list`
+  - `occ provider add`
+  - `occ provider remove`
+  - `occ provider show`
+  - `occ provider set-default`
+- Model listing with `occ models` and `occ models --json`.
+- Claude launcher shim with `occ enable`, `occ codex-shim install`, and `occ claude-shim install`.
+- Native restore path with `occ native`, `occ restore`, and `occ eject`.
+- Local process lifecycle commands: `occ start`, `occ stop`, `occ ensure`, `occ restart`, `occ health`.
+- Authenticated gateway health checks through `/v1/models` to avoid stale-token false positives.
+- Stale proxy cleanup during `occ init`, `occ start`, and `occ ensure`.
+- Claude Code `/model` slot environment overrides backed by configured `provider/model` ids.
+- Umans provider metadata for context windows, text-only models, and reasoning effort hints.
+- OpenAI-compatible chat translation smoke test with streaming and non-streaming coverage.
+
+### Security
+
+- `occ env` and the Claude shim unset `ANTHROPIC_AUTH_TOKEN` before routing through openclaude.
+- Gateway data-plane and management endpoints require the generated local gateway token.
+- Claude Code subscription OAuth is treated as native-only and is not reused by openclaude.
+
+### Changed
+
+- `occ native` now stops the proxy before restoring native Claude Code.
+- `occ init` now stops an existing proxy before writing a new config and refreshes an installed shim
+  after config changes.
+
+### Known limitations
+
+- `occ service` is compatibility-mode only; it delegates to `occ ensure` behavior rather than
+  installing a full OS service.
+- `occ gui` prints the local gateway URL; a web dashboard is not implemented yet.
+- `occ sync-cache` is a compatibility no-op because Claude Code has no writable model cache like
+  Codex.
