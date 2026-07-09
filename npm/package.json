@@ -4,9 +4,9 @@
   "description": "Claude Code provider gateway proxy",
   "license": "MIT",
   "bin": {
-    "occ": "./bin/occ.js",
-    "openclaude": "./bin/occ.js",
-    "openclaudecode": "./bin/occ.js"
+    "occ": "bin/occ.js",
+    "openclaude": "bin/occ.js",
+    "openclaudecode": "bin/occ.js"
   },
   "scripts": {
     "postinstall": "node ./bin/postinstall.js",
