@@ -14,7 +14,7 @@ if (existsSync(source)) {
   console.log(`openclaude: installed local ${target}`);
 } else {
   const asset = assetName();
-  const repo = process.env.OPENCLAUDE_RELEASE_REPO || "openclaude/openclaude";
+  const repo = process.env.OPENCLAUDE_RELEASE_REPO || "flyingsquirrel0419/openclaudecode";
   const url = `https://github.com/${repo}/releases/download/v${pkg.version}/${asset}`;
   download(url, dest).then(() => {
     if (process.platform !== "win32") chmodSync(dest, 0o755);
