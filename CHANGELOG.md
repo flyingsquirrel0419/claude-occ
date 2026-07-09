@@ -2,10 +2,10 @@
 
 All notable changes to openclaude are documented here.
 
-This project follows a pragmatic pre-1.0 changelog: versions may still change CLI details, but
-security boundaries and native-mode behavior should remain explicit.
+This project follows a pragmatic changelog: CLI details may evolve, but security boundaries and
+native-mode behavior should remain explicit.
 
-## [0.1.0] - 2026-07-08
+## [1.0.0] - 2026-07-09
 
 ### Added
 

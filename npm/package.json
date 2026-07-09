@@ -1,6 +1,6 @@
 {
   "name": "openclaudecode",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Claude Code provider gateway proxy",
   "license": "MIT",
   "bin": {
