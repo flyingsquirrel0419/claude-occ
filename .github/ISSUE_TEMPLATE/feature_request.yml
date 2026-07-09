@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest an improvement, provider adapter, or command behavior.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What workflow should this improve?
+      placeholder: I want to use occ with...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior, command, or provider support you want.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility notes
+      description: If this mirrors opencodex/ocx behavior, describe the matching command or output.
+      placeholder: This should behave like `ocx ...`
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workaround or different design you considered.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This request does not require extracting or reusing Claude Code subscription OAuth tokens outside Claude Code.
+          required: true
